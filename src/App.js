@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 
+// Array of questions and answers
 const questionsAndAnswers = [
   {
     id: 1,
@@ -62,22 +63,27 @@ const questionsAndAnswers = [
 ];
 
 function QuizCards() {
-  const [selectedId, setSelectID] = useState(null);
+  const [selectedId, setSelectID] = useState(null); // Track which card is selected
 
+  // Handle card click to toggle the visibility of the answer
   function handleClick(id) {
     setSelectID(id !== selectedId ? id : null);
   }
 
   return (
-    <div className="quizcard">
-      {questionsAndAnswers.map((question) => (
+    <div className="quizcard-container">
+      <h1 className="title">React Quiz</h1>
+      <p className="description">
+        Click on a question to reveal the answer. Test your React knowledge!
+      </p>
+      {questionsAndAnswers.map((item) => (
         <div
-          key={question.id}
-          onClick={() => handleClick(question.id)}
-          className={question.id === selectedId ? "slected" : ""}
+          key={item.id}
+          onClick={() => handleClick(item.id)}
+          className={`quizcard ${item.id === selectedId ? "selected" : ""}`}
         >
-          <p>{question.question}</p>
-          <p className="ans">{question.answer}</p>
+          <p className="question">{item.question}</p>
+          {item.id === selectedId && <p className="answer">{item.answer}</p>}
         </div>
       ))}
     </div>

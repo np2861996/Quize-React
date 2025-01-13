@@ -1,44 +1,91 @@
+/* General Styling */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Quiz Card Container */
+.quizcard-container {
+  width: 80%;
+  max-width: 600px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #4a90e2;
 }
-.ans {
-  display: none;
+
+.description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
 }
-.slected .ans {
+
+/* Individual Quiz Card */
+.quizcard {
+  background-color: #e9f5fe;
+  border: 1px solid #d3e9ff;
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 15px;
+  transition: transform 0.2s, background-color 0.2s;
+  cursor: pointer;
+}
+
+.quizcard:hover {
+  transform: scale(1.03);
+  background-color: #d3e9ff;
+}
+
+.quizcard.selected {
+  background-color: #c8e7fe;
+}
+
+.question {
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.answer {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #444;
+  font-style: italic;
   display: block;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .quizcard-container {
+    width: 95%;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .title {
+    font-size: 1.8rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .question {
+    font-size: 1rem;
+  }
+
+  .answer {
+    font-size: 0.9rem;
   }
 }
